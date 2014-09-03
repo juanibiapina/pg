@@ -1,0 +1,40 @@
+#!/usr/bin/env bash -e
+
+command="$1"
+
+resolve_link() {
+  $(type -p greadlink readlink | head -1) "$1"
+}
+
+abs_dirname() {
+  local cwd="$(pwd)"
+  local path="$1"
+
+  while [ -n "$path" ]; do
+    cd "${path%/*}"
+    local name="${path##*/}"
+    path="$(resolve_link "$name" || true)"
+  done
+
+  pwd
+  cd "$cwd"
+}
+
+bin_path="$(abs_dirname "$0")"
+export PATH="$bin_path:$PATH"
+
+case "$command" in
+"" )
+    pg-help
+  ;;
+* )
+  command_path="$(command -v "pg-$command" || true)"
+  if [ -z "$command_path" ]; then
+    echo "pg: no such command '$command'" >&2
+    exit 1
+  fi
+
+  shift 1
+  exec "$command_path" "$@"
+  ;;
+esac

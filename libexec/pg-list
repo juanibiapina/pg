@@ -1,0 +1,3 @@
+#!/usr/bin/env bash -e
+
+psql postgres -Atq -c "select d.datname from pg_catalog.pg_database d where d.datname <> 'template0';" 2>/dev/null
