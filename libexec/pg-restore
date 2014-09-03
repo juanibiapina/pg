@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+db_name="$1"
+
+if [ -z "$db_name" ]; then
+  echo "Usage: pg restore <db_name>"
+  exit 1
+fi
+
+pg-kill-connections "$db_name"
+pg-drop "$db_name"
+
+psql postgres <<EOF
+CREATE DATABASE "$db_name" WITH TEMPLATE snapshot;
+EOF
