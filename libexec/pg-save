@@ -8,6 +8,7 @@ if [ -z "$db_name" ]; then
 fi
 
 pg-kill-connections "$db_name"
+pg-drop "snapshot"
 
 psql postgres <<EOF
 CREATE DATABASE snapshot WITH TEMPLATE $db_name;
