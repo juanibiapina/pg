@@ -1,0 +1,10 @@
+#!/usr/bin/env bash -e
+
+db_name="$1"
+
+if [ -z "$db_name" ]; then
+  echo "Usage: pg drop <db_name>"
+  exit 1
+fi
+
+dropdb "$db_name"
