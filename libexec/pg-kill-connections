@@ -7,6 +7,6 @@ if [ -z "$db_name" ]; then
   exit 1
 fi
 
-psql postgres <<EOF
+psql postgres > /dev/null <<EOF
 SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE pid <> pg_backend_pid() AND datname='$db_name';
 EOF
