@@ -7,4 +7,4 @@ if [ -z "$db_name" ]; then
   exit 1
 fi
 
-dropdb "$db_name"
+dropdb --if-exists "$db_name"
