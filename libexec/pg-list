@@ -1,3 +1,9 @@
 #!/usr/bin/env bash -e
 
-psql postgres -Atq -c "select d.datname from pg_catalog.pg_database d where d.datname <> 'template0';" 2>/dev/null
+arg="$1"
+
+if [ "$arg" = "--short" ]; then
+  psql postgres -Atq -c "select d.datname from pg_catalog.pg_database d where d.datname <> 'template0';" 2>/dev/null
+else
+  psql -l
+fi
