@@ -1,0 +1,19 @@
+#!/usr/bin/env bash -e
+
+origin="$1"
+target="$2"
+
+if [ -z "$origin" ]; then
+  echo "Usage: pg mv <source> <target>"
+  exit 1
+fi
+
+if [ -z "$target" ]; then
+  echo "Usage: pg mv <source> <target>"
+  exit 1
+fi
+
+pg-kill-connections "$origin"
+psql postgres <<EOF
+ALTER DATABASE "$origin" RENAME TO "$target";
+EOF

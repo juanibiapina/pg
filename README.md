@@ -16,6 +16,7 @@ Or clone the repository and add the `bin` folder to your path.
 - `pg save <database>`: saves a snapshot of a database
 - `pg restore <database>`: restores a database from a snapshot
 - `pg kill-connections <database>`: kill all connections to a database
+- `pg mv <origin> <target>`: rename a db
 
 # Development
 
