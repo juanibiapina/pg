@@ -12,10 +12,10 @@ Or clone the repository and add the `bin` folder to your path.
 
 # Commands
 
-`pg list`: lists databases
-`pg save <database>`: saves a snapshot of a database
-`pg restore <database>`: restores a database from a snapshot
-`pg kill-connections <database>`: kill all connections to a database
+- `pg list`: lists databases
+- `pg save <database>`: saves a snapshot of a database
+- `pg restore <database>`: restores a database from a snapshot
+- `pg kill-connections <database>`: kill all connections to a database
 
 # Development
 
