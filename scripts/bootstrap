@@ -1,0 +1,4 @@
+#!/usr/bin/env bash -e
+
+rm -rf .cluster
+initdb -D .cluster

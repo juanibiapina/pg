@@ -3,9 +3,9 @@
 db_name="$1"
 
 if [ -z "$db_name" ]; then
-  echo "Usage: pg drop <db_name>"
+  echo "Usage: pg drop <database>"
   exit 1
 fi
 
 pg-kill-connections "$db_name"
-dropdb --if-exists "$db_name"
+dropdb --if-exists "$@"
