@@ -11,6 +11,13 @@ mkdir -p "${PG_CWD}"
 
 setup() {
   cd "${PG_CWD}"
+  while read -r db; do
+    if [[ ! "$db" == template* ]]; then
+      if [[ ! "$db" == postgres* ]]; then
+        dropdb "$db"
+      fi
+    fi
+  done < <(pg-list --short)
 }
 
 teardown() {

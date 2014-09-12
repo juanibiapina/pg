@@ -6,6 +6,4 @@ load test_helper
   run pg-create test1
   assert_success
   assert_db_exists test1
-
-  dropdb test1
 }
