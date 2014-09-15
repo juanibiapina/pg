@@ -1,0 +1,11 @@
+#compdef pg
+
+_pg_commands() {
+  compadd "$@" - $(pg commands)
+}
+
+local curcontext="$curcontext" state line
+typeset -A opt_args
+
+_arguments \
+  ':command:_pg_commands'
