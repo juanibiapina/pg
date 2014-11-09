@@ -1,6 +1,4 @@
-eval "$(basher init-bundle -)"
-
-source "$(basher runtime-path basherpm/bats-assertions)"
+source "$(basher package-path basherpm/bats-assertions)/lib/assertions.bash"
 
 export PG_TEST_DIR="${BATS_TMPDIR}/pg"
 export PG_CWD="${PG_TEST_DIR}/cwd"
