@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# Summary: Create a super user account for current user
+#
+# Usage: pg init
+
+set -e
+
+user="$USER"
+
+sudo su - -c "createuser -s $user" postgres
