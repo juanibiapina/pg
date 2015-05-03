@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+#
+# Summary: Easy wrapper for common postgres commands
+#
+# Usage: pg <command> [<args>]
 
 set -e
 

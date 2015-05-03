@@ -2,4 +2,4 @@
 
 set -e
 
-basher _commands pg
+lasher _commands pg
